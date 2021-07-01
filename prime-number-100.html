@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prime-number-100</title>
+</head>
+
+<body>
+    <script>
+        // get prime numbers under 100:
+        let arrPrime = [];
+        let isPrime;
+        let num;
+        for (let num = 2; num <= 100; num++) {
+            let isPrime = true;
+            for (let i = 2; i < num; i++) {
+                if ((num % i) == 0) {
+                    isPrime = false;
+                    break;
+                } else {
+                    isPrime = true;
+                }
+            }
+            if (isPrime === false) {
+                continue;
+            } else {
+                arrPrime.push(num);
+            }
+
+        }
+        console.log(arrPrime);
+
+        // write those primes to document
+        // create div for Primes
+        let divPrimes = document.createElement('div');
+        divPrimes.setAttribute("id", "Primes");
+        // creae textNodes Prime title for primes:
+        let titlePrime = document.createTextNode("小於100的質數有： ");
+        let titleDiv = document.createElement('div');
+        titleDiv.setAttribute("id", "title");
+        titleDiv.appendChild(titlePrime);
+        divPrimes.appendChild(titleDiv);
+        // create Primes textNode:
+        // (skip next 3 lines)
+        // for (let i = 0; i < arrPrime.length; {
+        //     document.write(` ${arrPrime[i]} `);
+        // }
+        let PrimeText = document.createTextNode(arrPrime);
+        let arrPrimeDiv = document.createElement('div');
+        arrPrimeDiv.setAttribute("id", "arrPrime");
+        arrPrimeDiv.appendChild(PrimeText);
+        divPrimes.appendChild(arrPrimeDiv);
+        // create the third line for prime:
+        let PrimeTotal = document.createTextNode("總共有 ");
+        let PrimeTotalNum = document.createTextNode("25");
+        let PrimeTotalNumSpan = document.createElement("span");
+        PrimeTotalNumSpan.appendChild(PrimeTotalNum);
+        let PrimeTotalEnd = document.createTextNode(" 個。");
+        let totalDiv = document.createElement('div');
+        totalDiv.setAttribute("id", "total");
+        totalDiv.appendChild(PrimeTotal);
+        totalDiv.appendChild(PrimeTotalNumSpan);
+        totalDiv.appendChild(PrimeTotalEnd);
+        divPrimes.appendChild(totalDiv);
+        // append divPrimes to body and show on browser
+        document.body.append(divPrimes);
+        divPrimes.style["width"] = "50rem";
+        divPrimes.style["margin"] = "0 auto";
+        divPrimes.style["marginTop"] = "3rem";
+        divPrimes.style["padding"] = "5rem";
+        divPrimes.style["display"] = "flex";
+        divPrimes.style["flexDirection"] = "column";
+        divPrimes.style["textAlign"] = "center";
+        divPrimes.style["backgroundColor"] = "#CFEE99";
+        titleDiv.style["font-size"] = "2rem";
+        titleDiv.style["fontWeight"] = "800";
+        titleDiv.style["marginBottom"] = "2rem";
+        arrPrimeDiv.style["fontSize"] = "1.5rem";
+        arrPrimeDiv.style["marginBottom"] = "1rem";
+        totalDiv.style["fontSize"] = "1.3rem";
+        PrimeTotalNumSpan.style["fontSize"] = "1.7rem";
+        PrimeTotalNumSpan.style["color"] = "magenta";
+
+
+
+
+
+
+        // get 3 ,4 % ==0 :
+
+        let arrComDe34 = [];
+        let isComDe;
+        let number;
+        for (let number = 3; number <= 100; number++) {
+            let isComDe = false;
+            if (((number % 3) === 0) && ((number % 4) === 0)) {
+                isComDe = true;
+                arrComDe34.push(number);
+            } else {
+                isComDe = false;
+                continue;
+            }
+            // (below: no need to test 3j, 4j, skip the lines below:)
+            // for (let j = 1; j < number; {
+            //     if (((number % (3 * j)) === 0) && ((number % (4 * j)) === 0)) {
+            //         isComDe = true;
+            //     } else {
+            //         break;
+            //     }
+            // }
+            // if (isComDe === true) {
+            //     arrComDe34.push(number);
+            // } else {
+            //     continue;
+            // }
+            // (above: no need to test 3j, 4j)
+
+        }
+        console.log(arrComDe34);
+
+        // write the list on browser
+        // create Div for the numbers: 
+        let div34 = document.createElement('div');
+        div34.setAttribute("class", "34Com");
+        // create title divs and textNodes:
+        let title34 = document.createElement('h2');
+        let title34Text = document.createTextNode('100之內，3和4的公倍數有： ');
+        title34.appendChild(title34Text);
+        // create num divs and textNode:
+        let Cdiv = document.createElement('div');
+        Cdiv.setAttribute("class", "34answer");
+        let Clist = document.createTextNode(arrComDe34);
+        Cdiv.appendChild(Clist);
+        // add everything into div34 and append div34 tnto body:
+        div34.appendChild(title34);
+        div34.appendChild(Cdiv);
+        document.body.append(div34);
+        // styling of div34:
+        div34.style["width"] = "30rem";
+        div34.style["margin"] = "0 auto";
+        div34.style["padding"] = "5rem";
+        div34.style[""] = "";
+        div34.style["backgroundColor"] = "yellow";
+        div34.style["marginTop"] = "3rem";
+        div34.style["text-align"] = "center";
+        div34.style["borderRadius"] = "50% 50%";
+        div34.style[""] = "";
+        // styling of Cdiv:
+        Cdiv.style["fontSize"] = "1.3rem";
+        Cdiv.style["fontWeight"] = "800";
+        div34.style[""] = "";
+        div34.style[""] = "";
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

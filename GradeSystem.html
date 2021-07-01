@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GradeSystem</title>
+</head>
+
+<body>
+    <script>
+        // ------List student info as objects----------
+        let student01 = {
+            name: "Alex",
+            age: "18",
+            eng_score: 87,
+            math_score: 90,
+        };
+        let student02 = {
+            name: "Bill",
+            age: "19",
+            eng_score: 95,
+            math_score: 98,
+        };
+        let student03 = {
+            name: "Cook",
+            age: "17",
+            eng_score: 100,
+            math_score: 73,
+        };
+        let arrStu = [student01, student02, student03];
+        let wrapper = document.createElement('div.wrap');
+        wrapper.style["width"] = "100%";
+        wrapper.style["margin"] = "0 auto";
+        wrapper.style["display"] = "flex";
+        wrapper.style["justify-content"] = "center";
+        document.body.append(wrapper);
+
+
+        for (let i = 0; i < arrStu.length; i++) {
+            // get student info and store in variables
+            stuName = arrStu[i]["name"];
+            stuAge = arrStu[i]["age"];
+            stuEng = arrStu[i]["eng_score"];
+            stuMath = arrStu[i]["math_score"];
+
+            // creat DOM elements and nodes to put those student infos into
+            // while giving them css styles and append into body
+            // make stuCardDiv
+
+            stuCardDiv = document.createElement('div.stuCard');
+            wrapper.appendChild(stuCardDiv);
+            stuCardDiv.style['width'] = "10rem";
+            stuCardDiv.style["height"] = "fit-content";
+            stuCardDiv.style["margin"] = "1rem";
+            stuCardDiv.style["paddingTop"] = "1rem";
+            stuCardDiv.style["paddingLeft"] = "0.5rem";
+            stuCardDiv.style["paddingRight"] = "0.5rem";
+            stuCardDiv.style["paddingBottom"] = "1rem";
+            stuCardDiv.style["display"] = "flex";
+            stuCardDiv.style["flex-direction"] = "Column";
+            stuCardDiv.style["backgroundColor"] = "skyBlue";
+
+            // name div:
+
+            nameDiv = document.createElement('div.name');
+            nameTextInDiv = document.createTextNode(stuName);
+            nameDiv.appendChild(nameTextInDiv);
+            stuCardDiv.appendChild(nameDiv);
+            nameDiv.style['backgroundColor'] = "yellow";
+            nameDiv.style['marginTop'] = "0rem";
+            nameDiv.style['text-align'] = "center";
+
+            // make age div-------
+            ageDiv = document.createElement('div.age');
+            ageTextInDiv = document.createTextNode(`Age: ${stuAge}`);
+            ageDiv.appendChild(ageTextInDiv);
+            stuCardDiv.appendChild(ageDiv);
+            ageDiv.style['backgroundColor'] = "lightGreen";
+            ageDiv.style['marginTop'] = "0.5rem";
+            ageDiv.style['text-align'] = "center";
+
+            // make eng div:
+
+            engDiv = document.createElement('div.eng');
+            engTextInDiv = document.createTextNode(`English grade: ${stuEng}`);
+            engDiv.appendChild(engTextInDiv);
+            stuCardDiv.appendChild(engDiv);
+            engDiv.style['backgroundColor'] = "cyan";
+            engDiv.style['marginTop'] = "0.5rem";
+            engDiv.style['text-align'] = "center";
+
+            // make math div:
+            mathDiv = document.createElement('div.math');
+            mathTextInDiv = document.createTextNode(`Math grade: ${stuMath}`);
+            mathDiv.appendChild(mathTextInDiv);
+            stuCardDiv.appendChild(mathDiv);
+            mathDiv.style['backgroundColor'] = "orange";
+            mathDiv.style['marginTop'] = "0.5rem";
+            mathDiv.style['text-align'] = "center";
+
+            //put  
+
+        };
+
+        // -----------calc Math average grade-------
+
+        let mathTotal = 0;
+        // let mathGrades = [];
+        for (let i = 0; i < arrStu.length; i++) {
+            mathTotal = mathTotal + arrStu[i]["math_score"];
+        }
+        let mathAverage = mathTotal / arrStu.length;
+
+
+        // ---------calc English average grade----------
+
+        let engTotal = 0;
+        for (let i = 0; i < arrStu.length; i++) {
+            engTotal = engTotal + arrStu[i]["eng_score"];
+        };
+        let engAverage = engTotal / arrStu.length;
+
+        // ----Make a card for averages, show Math and English average in a card
+        avgCardDiv = document.createElement('div.avgCard');
+        document.body.append(avgCardDiv);
+        avgCardDiv.style['width'] = "10rem";
+        avgCardDiv.style["height"] = "fit-content";
+        avgCardDiv.style["margin"] = "0 auto";
+        avgCardDiv.style["marginTop"] = "3rem";
+        avgCardDiv.style["paddingTop"] = "1rem";
+        avgCardDiv.style["paddingLeft"] = "0.5rem";
+        avgCardDiv.style["paddingRight"] = "0.5rem";
+        avgCardDiv.style["paddingBottom"] = "1rem";
+        avgCardDiv.style["display"] = "flex";
+        avgCardDiv.style["flex-direction"] = "Column";
+        avgCardDiv.style["backgroundColor"] = "skyBlue";
+
+
+        // create Average English Div
+
+        avgEngDiv = document.createElement('div.avgEng');
+        avgEngTextInDiv = document.createTextNode(`English average: ${engAverage}`);
+        avgEngDiv.appendChild(avgEngTextInDiv);
+        avgCardDiv.appendChild(avgEngDiv);
+        avgEngDiv.style['backgroundColor'] = "#E1E2E1";
+        avgEngDiv.style['marginTop'] = "0.5rem";
+        avgEngDiv.style['text-align'] = "center";
+
+        // creat average Math div
+
+        avgMathDiv = document.createElement('div.avgMath');
+        avgMathTextInDiv = document.createTextNode(`Math average: ${mathAverage}`);
+        avgMathDiv.appendChild(avgMathTextInDiv);
+        avgCardDiv.appendChild(avgMathDiv);
+        avgMathDiv.style['backgroundColor'] = "#FFCC00";
+        avgMathDiv.style['marginTop'] = "0.5rem";
+        avgMathDiv.style['text-align'] = "center";
+
+
+
+    </script>
+</body>
+
+</html>
